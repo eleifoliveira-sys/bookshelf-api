@@ -9,3 +9,7 @@ Route::apiResource('genres', GenreController::class)
 
 Route::apiResource('books', BookController::class)
     ->whereNumber('book');
+
+Route::get('ping', function () {
+    return response()->json(['message' => 'pong']);
+});
