@@ -5,14 +5,14 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class MoviesSeeder extends Seeder
+class BookSeeder extends Seeder
 {
     public function run(): void
     {
         $now = now();
         $genreIds = DB::table('genres')->pluck('id', 'name');
 
-        $movies = [
+        $books = [
             // Fantasy
             ['genre' => 'Fantasy', 'title' => 'The Hobbit', 'author' => 'J.R.R. Tolkien', 'pages' => 310, 'status' => 'finished', 'rating' => 5],
             ['genre' => 'Fantasy', 'title' => 'A Game of Thrones', 'author' => 'George R.R. Martin', 'pages' => 694, 'status' => 'reading', 'rating' => null],
@@ -34,13 +34,14 @@ class MoviesSeeder extends Seeder
             ['genre' => 'Mystery', 'title' => 'Gone Girl', 'author' => 'Gillian Flynn', 'pages' => 415, 'status' => 'reading', 'rating' => null],
         ];
 
-        foreach ($movies as $movie) {
-            DB::table('movies')->insert([
-                'genre_id'   => $genreIds[$movie['genre']],
-                'title'      => $movie['title'],
-                'author'     => $movie['author'],
-                'status'     => $movie['status'],
-                'rating'     => $movie['rating'],
+        foreach ($books as $book) {
+            DB::table('books')->insert([
+                'genre_id'   => $genreIds[$book['genre']],
+                'title'      => $book['title'],
+                'author'     => $book['author'],
+                'pages'      => $book['pages'],
+                'status'     => $book['status'],
+                'rating'     => $book['rating'],
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);

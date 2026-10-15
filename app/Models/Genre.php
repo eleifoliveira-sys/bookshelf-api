@@ -17,6 +17,6 @@ class Genre extends Model
 
     public function books(): HasMany
     {
-        return $this->hasMany(Movies::class);
+        return $this->hasMany(Book::class);
     }
 }

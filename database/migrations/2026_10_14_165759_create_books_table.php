@@ -8,11 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->foreignId('genre_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->string('author');
+            $table->integer('pages')->nullable();
             $table->enum('status', ['to_read', 'reading', 'finished'])->default('to_read');
             $table->unsignedTinyInteger('rating')->nullable();
             $table->timestamps();
@@ -21,6 +22,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::dropIfExists('books');
     }
 };
