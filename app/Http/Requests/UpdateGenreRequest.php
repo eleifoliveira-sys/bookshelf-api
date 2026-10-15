@@ -21,10 +21,10 @@ class UpdateGenreRequest extends FormRequest
      * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
-{
-    return [
-        'name'        => ['sometimes', 'required', 'string', 'max:255'],
-        'description' => ['nullable', 'string'],
-    ];
-}
+    {
+        return [
+            'name' => ['sometimes', 'required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+        ];
+    }
 }

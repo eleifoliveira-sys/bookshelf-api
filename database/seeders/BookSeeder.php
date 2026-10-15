@@ -36,12 +36,12 @@ class BookSeeder extends Seeder
 
         foreach ($books as $book) {
             DB::table('books')->insert([
-                'genre_id'   => $genreIds[$book['genre']],
-                'title'      => $book['title'],
-                'author'     => $book['author'],
-                'pages'      => $book['pages'],
-                'status'     => $book['status'],
-                'rating'     => $book['rating'],
+                'genre_id' => $genreIds[$book['genre']],
+                'title' => $book['title'],
+                'author' => $book['author'],
+                'pages' => $book['pages'],
+                'status' => $book['status'],
+                'rating' => $book['rating'],
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
